@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import toys.Car;
-import toys.Helicopter;
+import toyproduct.Toy;
 import toys.ToyBusiness;
 
 public class NewMain {
@@ -13,8 +12,7 @@ public class NewMain {
     public static void main(String[] args) throws IOException{
         Scanner sc = new Scanner(System.in);
         ToyBusiness Business=new ToyBusiness();
-        ArrayList<Car> cars = new ArrayList<>();
-        ArrayList<Helicopter> helicopters = new ArrayList<>();
+        ArrayList<Toy> toys = new ArrayList<>();
         String command;
         while (!"exit".equals(command=sc.nextLine())) {
             if(null == command){
@@ -22,17 +20,11 @@ public class NewMain {
             }
             else switch (command) {
                 case "car":
-                    cars.add(Business.createCar());
-                    System.out.println("Built cars: " +
-                            cars.stream()
-                                    .map(c->c.getSerialNumber().toString())
-                                    .collect(Collectors.joining(", ")));
-                    break;
                 case "helicopter":
-                    helicopters.add(Business.createHelicopter());
-                    System.out.println("Built helicopters: "+
-                            helicopters.stream()
-                                    .map(c->c.getSerialNumber().toString())
+                    toys.add(Business.createToy(command));
+                    System.out.println("Built toys: "+
+                            toys.stream()
+                                    .map(c->c.toString())
                                     .collect(Collectors.joining(", ")));
                     break;
                 default:
