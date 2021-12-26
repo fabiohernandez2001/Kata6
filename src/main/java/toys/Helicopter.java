@@ -3,7 +3,7 @@ package toys;
 
 public class Helicopter {
     private final Integer serialNumber;
-    private String type="helicopter";
+    private final String type="helicopter";
     public Helicopter(Integer serialNumber){
         this.serialNumber=serialNumber;
     }

@@ -6,13 +6,13 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import toys.Car;
 import toys.Helicopter;
-import toys.SerialNumberGenerator;
+import toys.ToyBusiness;
 
 public class NewMain {
 
     public static void main(String[] args) throws IOException{
         Scanner sc = new Scanner(System.in);
-        SerialNumberGenerator sng= new SerialNumberGenerator();
+        ToyBusiness Business=new ToyBusiness();
         ArrayList<Car> cars = new ArrayList<Car>();
         ArrayList<Helicopter> helicopters = new ArrayList<Helicopter>();
         String command;
@@ -22,20 +22,14 @@ public class NewMain {
             }
             else switch (command) {
                 case "car":
-                    Car car=new Car(sng.next());
-                    car.pack();
-                    car.label();
-                    cars.add(car);
+                    cars.add(Business.createCar());
                     System.out.println("Built cars: "+
                             cars.stream()
                                     .map(c->c.getSerialNumber().toString())
                                     .collect(Collectors.joining(", ")));
                     break;
                 case "helicopter":
-                    Helicopter helicopter=new Helicopter(sng.next());
-                    helicopter.pack();
-                    helicopter.label();
-                    helicopters.add(helicopter);
+                    helicopters.add(Business.createHelicopter());
                     System.out.println("Built helicopters: "+
                             helicopters.stream()
                                     .map(c->c.getSerialNumber().toString())
