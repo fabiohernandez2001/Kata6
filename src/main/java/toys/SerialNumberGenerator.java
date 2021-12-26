@@ -2,10 +2,10 @@
 package toys;
 
 public class SerialNumberGenerator {
-    private int serialNumber=0;
-    public int next(){
+    private Integer serialNumber=0;
+    public Integer next(){
         int aux=serialNumber;
         serialNumber++;
-        return aux;
+        return Integer.valueOf(aux);
     }
 }
