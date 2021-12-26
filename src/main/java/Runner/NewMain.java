@@ -13,8 +13,8 @@ public class NewMain {
     public static void main(String[] args) throws IOException{
         Scanner sc = new Scanner(System.in);
         ToyBusiness Business=new ToyBusiness();
-        ArrayList<Car> cars = new ArrayList<Car>();
-        ArrayList<Helicopter> helicopters = new ArrayList<Helicopter>();
+        ArrayList<Car> cars = new ArrayList<>();
+        ArrayList<Helicopter> helicopters = new ArrayList<>();
         String command;
         while (!"exit".equals(command=sc.nextLine())) {
             if(null == command){
@@ -23,7 +23,7 @@ public class NewMain {
             else switch (command) {
                 case "car":
                     cars.add(Business.createCar());
-                    System.out.println("Built cars: "+
+                    System.out.println("Built cars: " +
                             cars.stream()
                                     .map(c->c.getSerialNumber().toString())
                                     .collect(Collectors.joining(", ")));
