@@ -1,20 +1,19 @@
 package Runner;
 
-import branches.AmericanToyBusiness;
-import branches.AsianToyBusiness;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import toyproduct.Toy;
 import business.ToyBusiness;
+import factories.regionalfactories.AsianToyFactory;
 
 public class NewMain {
 
     public static void main(String[] args) throws IOException{
         Scanner sc = new Scanner(System.in);
-        ToyBusiness AmericanBusiness=new AmericanToyBusiness();
-        ToyBusiness AsianBusiness=new AsianToyBusiness();
+        //ToyBusiness Business=new ToyBusiness(new AmericanToyFactory());
+        ToyBusiness Business=new ToyBusiness(new AsianToyFactory());
         ArrayList<Toy> toys = new ArrayList<>();
         String command;
         while (!"exit".equals(command=sc.nextLine())) {
@@ -24,7 +23,7 @@ public class NewMain {
             else switch (command) {
                 case "car":
                 case "helicopter":
-                    toys.add(AsianBusiness.createToy(command));
+                    toys.add(Business.produceToy(command));
                     System.out.println("Built toys: "+
                             toys.stream()
                                     .map(c->c.toString())

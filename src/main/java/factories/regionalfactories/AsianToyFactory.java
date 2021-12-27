@@ -1,13 +1,13 @@
 
-package branches;
+package factories.regionalfactories;
 
-import business.ToyBusiness;
+import factories.ToyFactory;
 import toyproduct.Toy;
+import toyproduct.models.AmericanHelicopterToy;
 import toyproduct.models.AsianCarToy;
 import toyproduct.models.AsianHelicopterToy;
 
-public class AsianToyBusiness extends ToyBusiness{
-    
+public class AsianToyFactory extends ToyFactory{
     @Override
     public Toy createToy(String type){
         switch(type){
@@ -18,12 +18,9 @@ public class AsianToyBusiness extends ToyBusiness{
                 return car;
             case "helicopter":
                 AsianHelicopterToy helicopter = new AsianHelicopterToy(this.sng.next());
-                helicopter.pack();
-                helicopter.label();
                 return helicopter;
             default:
                 return null;
         }
     }
-
 }

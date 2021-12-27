@@ -1,5 +1,5 @@
 
-package business;
+package factories;
 
 public class SerialNumberGenerator {
     private Integer serialNumber=0;
